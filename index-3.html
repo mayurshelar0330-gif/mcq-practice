@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>लक्ष्यदीप करिअर अकॅडमी - पोलीस भरती सराव प्रश्नसंच</title>
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0b5a82;--blue-d:#08435f;--gold:#e0a114;--paper:#f3f7fa;--ink:#17232d;--line:#d5e0e8;--ok:#1e8a4c;--bad:#c63a3a;--warn:#c98a00}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:'Mukta','Noto Sans Devanagari',system-ui,sans-serif;background:var(--paper);color:var(--ink);font-size:17px;line-height:1.5;min-height:100vh;display:flex;flex-direction:column}
+.brand{background:#fff;border-bottom:4px solid var(--gold);padding:14px 12px 12px;text-align:center}
+.brand img{height:84px;width:auto;display:block;margin:0 auto 4px}
+.brand h1{margin:0;font-size:28px;font-weight:800;color:var(--blue);line-height:1.2}
+.team{display:flex;justify-content:center;gap:6px;margin:10px auto 0;max-width:720px;font-size:14px;font-weight:700;color:var(--ink);line-height:1.3}
+.team div{flex:1;border-left:2px solid var(--gold);padding:0 4px}
+.team div:first-child{border-left:0}
+.team span{display:block;color:var(--gold);font-weight:800;font-size:13px;margin-bottom:2px}
+@media (min-width:600px){.team{font-size:18px}.team span{font-size:15px}}
+.qtext,.rv .q{white-space:pre-line}
+.wrap{width:100%;max-width:720px;margin:0 auto;padding:14px 14px 10px;flex:1}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:12px}
+h2{margin:0 0 6px;font-size:21px;color:var(--blue-d)}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 4px}
+.meta span{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:4px 10px;font-weight:600;font-size:15px}
+ul.rules{margin:8px 0 0;padding-left:20px}
+ul.rules li{margin:3px 0}
+button{font-family:inherit;font-size:17px;cursor:pointer}
+.btn{border:0;border-radius:8px;padding:11px 18px;font-weight:700;background:var(--blue);color:#fff}
+.btn:active{background:var(--blue-d)}
+.btn.gold{background:var(--gold);color:#2a1d00}
+.btn.ghost{background:#fff;color:var(--blue);border:2px solid var(--blue)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.full{width:100%;margin-top:14px;font-size:19px}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.hidden{display:none!important}
+
+/* quiz */
+.bar{position:sticky;top:0;z-index:5;background:var(--blue);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:8px 14px;font-weight:700}
+.bar .t{font-size:21px;font-variant-numeric:tabular-nums}
+.bar .t.low{color:#ffd24d}
+.bar button{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.5);border-radius:6px;padding:4px 12px;font-size:15px;font-weight:600}
+.prog{height:5px;background:#cfe0ea}
+.prog i{display:block;height:100%;background:var(--gold);width:0}
+.qno{font-weight:700;color:var(--blue);margin-bottom:4px}
+.qtext{font-size:19px;font-weight:600;margin-bottom:12px}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:#fff;border:2px solid var(--line);border-radius:9px;padding:10px 12px;margin-bottom:9px;font-size:17px;color:var(--ink)}
+.opt b{flex:0 0 26px;height:26px;border-radius:50%;background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:14px}
+.opt.sel{border-color:var(--blue);background:#e8f3fa}
+.opt.sel b{background:var(--blue);color:#fff;border-color:var(--blue)}
+.nav{display:flex;gap:10px;margin-top:6px}
+.nav .btn{flex:1}
+
+/* list panel */
+.ov{position:fixed;inset:0;background:rgba(10,30,45,.55);z-index:20;display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:#fff;width:100%;max-width:720px;max-height:80vh;overflow:auto;border-radius:14px 14px 0 0;padding:16px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:10px 0}
+.grid button{border:2px solid var(--line);background:#fff;border-radius:8px;padding:8px 0;font-weight:700;color:var(--ink)}
+.grid button.ans{background:var(--blue);border-color:var(--blue);color:#fff}
+.grid button.cur{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold)}
+.legend{font-size:14px;color:#4d6070}
+
+/* result */
+.score{text-align:center}
+.score .big{font-size:46px;font-weight:800;color:var(--blue);line-height:1.1}
+.label{display:inline-block;margin:8px 0 4px;padding:4px 18px;border-radius:20px;font-size:24px;font-weight:800;color:#fff}
+.l-Excellent{background:var(--ok)}.l-Good{background:var(--blue)}.l-Average{background:var(--warn)}.l-Bad{background:var(--bad)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.stats div{background:var(--paper);border-radius:8px;padding:8px 4px;text-align:center;font-weight:700}
+.stats small{display:block;font-weight:400;color:#4d6070}
+.rv{border-left:6px solid var(--bad);}
+.rv.skip{border-left-color:var(--warn)}
+.rv .q{font-weight:600;margin:2px 0 6px}
+.rv .y{color:var(--bad);font-weight:600}
+.rv .s{color:var(--warn);font-weight:600}
+.rv .c{color:var(--ok);font-weight:700}
+
+.credit{text-align:center;font-size:10px;color:#7a8b99;opacity:.5;padding:18px 10px 14px;letter-spacing:.2px}
+@media (max-width:380px){.brand h1{font-size:24px}.qtext{font-size:18px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="brand">
+  <img src="logo.png" alt="लक्ष्यदीप करिअर अकॅडमी लोगो">
+  <h1>लक्ष्यदीप करिअर अकॅडमी</h1>
+  <div class="team">
+    <div><span>संचालक</span> इंद्रजीत सांगळे सर</div>
+    <div><span>मार्गदर्शक</span> समाधान भोर सर</div>
+    <div><span>मार्गदर्शिका</span> अक्षरा महाजन मॅडम</div>
+  </div>
+</header>
+
+<!-- START -->
+<main class="wrap" id="start">
+  <div class="card">
+    <h2>पोलीस भरती सराव प्रश्नसंच</h2>
+    <div class="meta"><span>५० प्रश्न</span><span>५० गुण</span><span>२० मिनिटे</span></div>
+    <ul class="rules">
+      <li>प्रत्येक प्रश्नाला १ गुण. चुकीच्या उत्तराला गुण कापले जात नाहीत.</li>
+      <li>"मागचा" आणि "पुढचा" बटनाने प्रश्न बदला. "प्रश्न यादी" वरून कोणत्याही प्रश्नावर जा.</li>
+      <li>वेळ संपली की परीक्षा आपोआप सबमिट होईल.</li>
+      <li>शेवटी निकाल आणि चुकलेले / सोडलेले प्रश्न बरोबर उत्तरासह दिसतील.</li>
+    </ul>
+    <button class="btn full" id="startBtn">परीक्षा सुरू करा</button>
+  </div>
+</main>
+
+<!-- QUIZ -->
+<div id="quiz" class="hidden">
+  <div class="bar">
+    <span class="t" id="timer">20:00</span>
+    <span id="count">1 / 50</span>
+    <button id="listBtn">प्रश्न यादी</button>
+  </div>
+  <div class="prog"><i id="progBar"></i></div>
+  <div class="wrap">
+    <div class="card">
+      <div class="qno" id="qno"></div>
+      <div class="qtext" id="qtext"></div>
+      <div id="opts"></div>
+    </div>
+    <div class="nav">
+      <button class="btn ghost" id="prevBtn">मागचा</button>
+      <button class="btn" id="nextBtn">पुढचा</button>
+    </div>
+    <button class="btn gold full" id="submitBtn">परीक्षा सबमिट करा</button>
+  </div>
+</div>
+
+<!-- LIST PANEL -->
+<div class="ov hidden" id="ov">
+  <div class="sheet">
+    <h2>प्रश्न यादी</h2>
+    <div class="legend">निळा = उत्तर दिले, पांढरा = बाकी, सोनेरी कडा = सध्याचा प्रश्न</div>
+    <div class="grid" id="grid"></div>
+    <button class="btn full" id="closeList">बंद करा</button>
+  </div>
+</div>
+
+<!-- RESULT -->
+<main class="wrap hidden" id="result">
+  <div class="card score">
+    <h2>तुमचा निकाल</h2>
+    <div class="big" id="scoreTxt"></div>
+    <div id="pct"></div>
+    <div class="label" id="labelTxt"></div>
+    <div id="msg"></div>
+    <div class="stats">
+      <div id="sOk"></div><div id="sBad"></div><div id="sSkip"></div>
+    </div>
+    <button class="btn full" id="againBtn">पुन्हा सोडवा</button>
+  </div>
+  <h2 id="rvHead"></h2>
+  <div id="review"></div>
+</main>
+
+<div class="credit">Quiz Set by Mayur Shelar &amp; Sahil More</div>
+
+<script>
+var TOTAL_MIN = 20;
+
+var Q = [
+{q:"भारताची पहिली स्वदेशी बनावटीची विमानवाहू युद्धनौका कोणती आहे?",o:["INS विक्रांत", "INS विराट", "INS विक्रमादित्य", "INS तारागिरी"],a:0},
+{q:"'अमृत सरोवर' मोहीम कोणत्या कार्याशी संबंधित आहे?",o:["जलसंधारण", "मृदसंधारण", "मत्स्यपालन", "वायुप्रदूषण"],a:0},
+{q:"देशातील पहिले सौरऊर्जा ग्राम म्हणून कोणते गाव ओळखले जाते?",o:["मोढेरा", "मेहसाणा", "दुर्गापूर", "भरतपूर"],a:0},
+{q:"खालीलपैकी कोणाला नोबेल पुरस्कार मिळालेला नाही?",o:["बिल क्लिंटन", "मलाला युसुफझाई", "कैलास सत्यार्थी", "हरगोविंद खुराणा"],a:0},
+{q:"नाबार्डचे मुख्यालय कोठे आहे?",o:["दिल्ली", "मुंबई", "कोलकाता", "चेन्नई"],a:1},
+{q:"चुकीची जोडी ओळखा.",o:["शहनाई - बिस्मिल्ला खान", "तबला - झाकीर हुसेन", "सतार - पंडित रविशंकर", "यापैकी नाही"],a:3},
+{q:"मुंबई उच्च न्यायालयाची स्थापना कोणत्या वर्षी झाली?",o:["1856", "1894", "1852", "1862"],a:3},
+{q:"अंदमान बेटसमूहातील ज्वालामुखीजन्य बेट कोणते?",o:["कटलँड", "बॅरन आयलंड", "बाराटांग", "उत्तर अंदमान"],a:1},
+{q:"खालीलपैकी कोणता किल्ला पुणे जिल्ह्यात नाही?",o:["राजगड", "अजिंक्यतारा", "लोहगड", "शिवनेरी"],a:1},
+{q:"खालीलपैकी विजोड पद कोणते आहे?",o:["बीजिंग", "मॉस्को", "लाहोर", "नवी दिल्ली"],a:2},
+{q:"फॉरेस्ट रिसर्च इन्स्टिट्यूट कोठे आहे?",o:["नागपूर", "चंद्रपूर", "गडचिरोली", "डेहराडून"],a:3},
+{q:"खालीलपैकी कोणत्या राज्याला सर्वात मोठा समुद्रकिनारा लाभला आहे?",o:["महाराष्ट्र", "गुजरात", "तमिळनाडू", "ओडिशा"],a:1},
+{q:"भीमा नदी खालीलपैकी कोणत्या जिल्ह्यातून वाहत नाही?",o:["सातारा", "अहिल्यानगर", "पुणे", "सोलापूर"],a:0},
+{q:"फाल्कन हेवी म्हणजे काय?",o:["फायटर जेट", "स्पेस रॉकेट", "क्षेपणास्त्र", "सॉफ्टवेअर"],a:1},
+{q:"भारताचे दुसरे राष्ट्रपती कोण होते?",o:["राजेंद्रप्रसाद", "डॉ. एस. राधाकृष्णन", "पंडित नेहरू", "सरदार वल्लभभाई पटेल"],a:1},
+{q:"खालीलपैकी कोणाचा जन्म पुणे जिल्ह्यात झाला?",o:["गोपाळ हरी देशमुख", "लोकमान्य टिळक", "महर्षी कर्वे", "यापैकी नाही"],a:0},
+{q:"'माझे सत्याचे प्रयोग' या पुस्तकाचे लेखक कोण?",o:["महात्मा ज्योतिबा फुले", "महात्मा गांधी", "साने गुरुजी", "यापैकी नाही"],a:1},
+{q:"काळा घोडा महोत्सव कोणत्या शहरात साजरा केला जातो?",o:["मुंबई", "पुणे", "कोलकाता", "चेन्नई"],a:0},
+{q:"पवनार आश्रम कोणत्या जिल्ह्यात आहे?",o:["अहमदाबाद", "वर्धा", "नागपूर", "दिल्ली"],a:1},
+{q:"खालीलपैकी कोण महाराष्ट्राचे राज्यपाल नव्हते?",o:["भगतसिंह कोश्यारी", "डॉ. पी. सी. अलेक्झांडर", "गणेशी लाल", "सी. विद्यासागर राव"],a:2},
+{q:"खालीलपैकी कोणता किल्ला/गड सातारा जिल्ह्यात नाही?",o:["वसंतगड", "वैराटगड", "भूषणगड", "प्रबळगड"],a:3},
+{q:"सावित्रीबाई फुले यांचा जन्म कोणत्या गावी झाला?",o:["कराड", "वाई", "लिंब", "नायगाव"],a:3},
+{q:"ललिता बाबर कोणत्या खेळाशी संबंधित आहे?",o:["फुटबॉल", "उंच उडी", "लांब उडी", "स्टीपलचेस"],a:3},
+{q:"2011 च्या जनगणनेनुसार यवतमाळ जिल्ह्याचे स्त्री-पुरुष प्रमाण किती आहे?",o:["935", "931", "946", "952"],a:2},
+{q:"योग्य जोड्या लावा.\n\nकिल्ला — जिल्हा\na) अर्णाळा — i) धुळे\nb) कर्नाळा — ii) सातारा\nc) अजिंक्यतारा — iii) पालघर\nd) थाळनेर — iv) रायगड",o:["a-i, b-ii, c-iii, d-iv", "a-iii, b-ii, c-i, d-iv", "a-iv, b-i, c-iii, d-ii", "a-iii, b-iv, c-ii, d-i"],a:3},
+{q:"योग्य जोड्या लावा.\n\nधरण — जिल्हा\na) बिंदुसरा — i) नाशिक\nb) नळगंगा — ii) वाशिम\nc) अडाण — iii) बीड\nd) गंगापूर — iv) बुलढाणा",o:["a-iii, b-iv, c-ii, d-i", "a-iv, b-iii, c-ii, d-i", "a-ii, b-iv, c-iii, d-i", "a-iii, b-i, c-ii, d-iv"],a:0},
+{q:"योग्य जोड्या लावा.\n\nअभयारण्य — जिल्हा\na) येडशी-रामलिंग घाट — i) अकोला\nb) काटेपूर्णा — ii) कोल्हापूर\nc) राधानगरी — iii) रायगड\nd) फणसाड — iv) धाराशिव",o:["a-i, b-ii, c-iii, d-iv", "a-ii, b-i, c-iv, d-iii", "a-iv, b-i, c-ii, d-iii", "a-iii, b-iv, c-i, d-ii"],a:2},
+{q:"महात्मा ज्योतिबा फुले रिसर्च अँड ट्रेनिंग इन्स्टिट्यूट (महाज्योती) चे मुख्यालय कोठे आहे?",o:["पुणे", "गडचिरोली", "मुंबई", "नागपूर"],a:3},
+{q:"संयुक्त महाराष्ट्र चळवळीची माहिती जनतेपर्यंत पोहोचवण्यासाठी प्र. के. अत्रे यांनी कोणते दैनिक सुरू केले?",o:["नवा काळ", "मौज", "दैनिक मराठा", "प्रभात"],a:2},
+{q:"महाराष्ट्रातील पहिल्या महिला SRPF गटाचे ठिकाण कोणते?",o:["पुणे", "मुंबई", "ठाणे", "काटोल, नागपूर"],a:3},
+{q:"महाराष्ट्र पोलीस दलात 'रेझिंग डे' (ध्वजप्रदान दिन) म्हणून कोणता दिवस साजरा केला जातो?",o:["2 जानेवारी", "2 फेब्रुवारी", "2 मार्च", "2 एप्रिल"],a:0},
+{q:"DOTS ही उपचार पद्धती कोणत्या रोगाशी संबंधित आहे?",o:["एड्स", "रेबीज", "क्षय", "पोलिओ"],a:2},
+{q:"चिकनगुनिया हा रोग कशामुळे होतो?",o:["विषाणूमुळे", "जीवाणूमुळे", "बुरशीमुळे", "प्रोटोझोआमुळे"],a:0},
+{q:"संगणकीय भाषेत www चा अर्थ काय?",o:["World Wide Waste", "Work Wide Web", "World Wide Web", "World Video Web"],a:2},
+{q:"कोणत्या शास्त्रज्ञाच्या स्मरणार्थ नोबेल पुरस्कार दिला जातो?",o:["अॅलिसन नोबेल", "आल्फ्रेड नोबेल", "जॉन नोबेल", "अॅलेना नोबेल"],a:1},
+{q:"WHO ही संघटना कोणत्या क्षेत्राशी संबंधित आहे?",o:["संपत्ती", "आरोग्य", "शिक्षण", "रोजगार"],a:1},
+{q:"1929 चे लाहोर अधिवेशन हे काँग्रेसचे कितवे अधिवेशन होते?",o:["42 वे", "44 वे", "45 वे", "46 वे"],a:1},
+{q:"1929 च्या लाहोर अधिवेशनाचे अध्यक्ष कोण होते?",o:["महात्मा गांधी", "सुभाषचंद्र बोस", "पंडित जवाहरलाल नेहरू", "लोकमान्य टिळक"],a:2},
+{q:"31 डिसेंबर 1929 च्या मध्यरात्री पंडित जवाहरलाल नेहरूंनी कोणत्या नदीच्या काठी चरखांकित राष्ट्रध्वज फडकवला?",o:["गंगा", "यमुना", "रावी", "सिंधू"],a:2},
+{q:"काँग्रेस कार्यकारिणीच्या बैठकीत कोणता दिवस भारताचा स्वातंत्र्यदिन (पूर्ण स्वराज्य दिन) म्हणून पाळण्याचे ठरले?",o:["15 ऑगस्ट 1930", "26 जानेवारी 1930", "2 जानेवारी 1930", "31 डिसेंबर 1929"],a:1},
+{q:"तडजोडीसाठी गांधीजींनी सरकारकडे किती मागण्या मांडल्या होत्या?",o:["9", "10", "11", "12"],a:2},
+{q:"महात्मा गांधीजींनी भारतीय जनतेला सविनय कायदेभंगाचा आदेश कधी दिला?",o:["26 जानेवारी 1930", "12 मार्च 1930", "14 फेब्रुवारी 1930", "6 एप्रिल 1930"],a:2},
+{q:"सविनय कायदेभंग चळवळीसाठी महात्मा गांधीजींनी कोणत्या जीवनावश्यक वस्तूची निवड केली?",o:["कापड", "मीठ", "साखर", "पाणी"],a:1},
+{q:"महात्मा गांधीजींनी दांडीयात्रेला कधी सुरुवात केली?",o:["12 मार्च 1930", "6 एप्रिल 1930", "5 एप्रिल 1930", "23 एप्रिल 1930"],a:0},
+{q:"साबरमती आश्रम ते दांडी (गुजरात) हे अंतर किती किलोमीटर होते?",o:["300 कि.मी.", "350 कि.मी.", "385 कि.मी.", "400 कि.मी."],a:2},
+{q:"गांधीजींसोबत दांडीयात्रेत किती अनुयायी सहभागी झाले होते?",o:["72", "78", "80", "85"],a:1},
+{q:"नेताजी सुभाषचंद्र बोस यांनी गांधीजींच्या दांडीयात्रेची तुलना कोणत्या ऐतिहासिक घटनेशी केली?",o:["नेपोलियनचा एल्बा बेटावरून पॅरिसकडे झालेला प्रवास", "मुसोलिनीचा रोमवरील मोर्चा", "रशियन क्रांती", "फ्रेंच क्रांती"],a:0},
+{q:"गांधीजींनी दांडीच्या समुद्रकिनाऱ्यावर मिठाचा कायदा कधी मोडला?",o:["12 मार्च 1930", "5 एप्रिल 1930", "6 एप्रिल 1930", "23 एप्रिल 1930"],a:2},
+{q:"वायव्य सरहद्द प्रांतात 'खुदाई खिदमतगार' या संघटनेची स्थापना कोणी केली?",o:["खान अब्दुल गफारखान", "चंद्रसिंह ठाकूर", "सरोजिनी नायडू", "सुभाषचंद्र बोस"],a:0},
+{q:"गांधीजींच्या अटकेनंतर गुजरातमधील 'धारासना' येथील सत्याग्रहाचे नेतृत्व कोणी केले?",o:["कस्तुरबा गांधी", "सरोजिनी नायडू", "कमला नेहरू", "अनसूयाबाई काळे"],a:1}
+];
+
+var N = Q.length, cur = 0, ans = [], left = TOTAL_MIN * 60, tick = null, finished = false;
+var $ = function (id) { return document.getElementById(id); };
+var LET = ["अ", "ब", "क", "ड"];
+
+function show(id) {
+  ["start", "quiz", "result"].forEach(function (x) { $(x).classList.toggle("hidden", x !== id); });
+  window.scrollTo(0, 0);
+}
+
+function fmt(s) {
+  var m = Math.floor(s / 60), r = s % 60;
+  return (m < 10 ? "0" : "") + m + ":" + (r < 10 ? "0" : "") + r;
+}
+
+function startQuiz() {
+  ans = []; for (var i = 0; i < N; i++) ans.push(-1);
+  cur = 0; left = TOTAL_MIN * 60; finished = false;
+  $("timer").textContent = fmt(left);
+  $("timer").classList.remove("low");
+  show("quiz");
+  render();
+  clearInterval(tick);
+  tick = setInterval(function () {
+    left--;
+    $("timer").textContent = fmt(Math.max(left, 0));
+    if (left <= 120) $("timer").classList.add("low");
+    if (left <= 0) { alert("वेळ संपली! परीक्षा सबमिट होत आहे."); finish(); }
+  }, 1000);
+}
+
+function render() {
+  var q = Q[cur];
+  $("count").textContent = (cur + 1) + " / " + N;
+  $("progBar").style.width = ((cur + 1) / N * 100) + "%";
+  $("qno").textContent = "प्रश्न " + (cur + 1);
+  $("qtext").textContent = q.q;
+  var box = $("opts"); box.innerHTML = "";
+  q.o.forEach(function (t, i) {
+    var b = document.createElement("button");
+    b.className = "opt" + (ans[cur] === i ? " sel" : "");
+    var l = document.createElement("b"); l.textContent = LET[i];
+    var s = document.createElement("span"); s.textContent = t;
+    b.appendChild(l); b.appendChild(s);
+    b.onclick = function () { ans[cur] = (ans[cur] === i ? -1 : i); render(); };
+    box.appendChild(b);
+  });
+  $("prevBtn").disabled = cur === 0;
+  $("nextBtn").disabled = cur === N - 1;
+}
+
+function go(n) { if (n >= 0 && n < N) { cur = n; render(); window.scrollTo(0, 0); } }
+
+function openList() {
+  var g = $("grid"); g.innerHTML = "";
+  for (var i = 0; i < N; i++) {
+    (function (i) {
+      var b = document.createElement("button");
+      b.textContent = i + 1;
+      b.className = (ans[i] !== -1 ? "ans " : "") + (i === cur ? "cur" : "");
+      b.onclick = function () { $("ov").classList.add("hidden"); go(i); };
+      g.appendChild(b);
+    })(i);
+  }
+  $("ov").classList.remove("hidden");
+}
+
+function submitAsk() {
+  var left_ = ans.filter(function (x) { return x === -1; }).length;
+  var msg = left_ > 0
+    ? "अजून " + left_ + " प्रश्न सोडवायचे बाकी आहेत. तरीही सबमिट करायचे का?"
+    : "परीक्षा सबमिट करायची का?";
+  if (confirm(msg)) finish();
+}
+
+function finish() {
+  if (finished) return;
+  finished = true; clearInterval(tick);
+  var ok = 0, bad = 0, skip = 0;
+  ans.forEach(function (x, i) {
+    if (x === -1) skip++; else if (x === Q[i].a) ok++; else bad++;
+  });
+  var pct = Math.round(ok / N * 100);
+  var lab, msg;
+  if (ok >= 40) { lab = "Excellent"; msg = "उत्कृष्ट! असाच सराव चालू ठेवा."; }
+  else if (ok >= 30) { lab = "Good"; msg = "छान! थोडा अजून सराव केला तर यश नक्की."; }
+  else if (ok >= 20) { lab = "Average"; msg = "सरासरी. चुकलेले प्रश्न वाचून पुन्हा प्रयत्न करा."; }
+  else { lab = "Bad"; msg = "निराश होऊ नका. अभ्यास वाढवा आणि पुन्हा सोडवा."; }
+
+  $("scoreTxt").textContent = ok + " / " + N;
+  $("pct").textContent = pct + " %";
+  var L = $("labelTxt"); L.textContent = lab; L.className = "label l-" + lab;
+  $("msg").textContent = msg;
+  $("sOk").innerHTML = ok + "<small>बरोबर</small>";
+  $("sBad").innerHTML = bad + "<small>चुकले</small>";
+  $("sSkip").innerHTML = skip + "<small>सोडलेले</small>";
+
+  var rv = $("review"); rv.innerHTML = "";
+  var count = 0;
+  ans.forEach(function (x, i) {
+    if (x === Q[i].a) return;
+    count++;
+    var d = document.createElement("div");
+    d.className = "card rv" + (x === -1 ? " skip" : "");
+    var h = document.createElement("div"); h.className = "qno"; h.textContent = "प्रश्न " + (i + 1);
+    var q = document.createElement("div"); q.className = "q"; q.textContent = Q[i].q;
+    var y = document.createElement("div");
+    if (x === -1) { y.className = "s"; y.textContent = "तुम्ही हा प्रश्न सोडला"; }
+    else { y.className = "y"; y.textContent = "तुमचे उत्तर: " + Q[i].o[x]; }
+    var c = document.createElement("div"); c.className = "c"; c.textContent = "बरोबर उत्तर: " + Q[i].o[Q[i].a];
+    d.appendChild(h); d.appendChild(q); d.appendChild(y); d.appendChild(c);
+    rv.appendChild(d);
+  });
+  $("rvHead").textContent = count ? "चुकलेले / सोडलेले प्रश्न (" + count + ")" : "सर्व प्रश्न बरोबर! शाब्बास!";
+  $("ov").classList.add("hidden");
+  show("result");
+}
+
+$("startBtn").onclick = startQuiz;
+$("prevBtn").onclick = function () { go(cur - 1); };
+$("nextBtn").onclick = function () { go(cur + 1); };
+$("listBtn").onclick = openList;
+$("closeList").onclick = function () { $("ov").classList.add("hidden"); };
+$("submitBtn").onclick = submitAsk;
+$("againBtn").onclick = function () { show("start"); };
+</script>
+</body>
+</html>
